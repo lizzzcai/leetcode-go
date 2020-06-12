@@ -9,7 +9,6 @@ func isMatch(s string, p string) bool {
 		for j := 0; j < len(p)+1; j++ {
 			if i == 0 && j == 0 {
 				dp[i][j] = true
-
 			} else if i == 0 {
 				dp[i][j] = p[j-1] == '*' && dp[i][j-1]
 			} else if j == 0 {
