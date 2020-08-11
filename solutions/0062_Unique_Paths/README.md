@@ -1,62 +1,61 @@
-# 140. Word Break II - Hard
+# 62. Unique Paths - Medium
 
 ```
-Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, add spaces in s to construct a sentence where each word is a valid dictionary word. Return all such possible sentences.
+A robot is located at the top-left corner of a m x n grid (marked 'Start' in the diagram below).
 
-Note:
+The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
-The same word in the dictionary may be reused multiple times in the segmentation.
-You may assume the dictionary does not contain duplicate words.
+How many possible unique paths are there?
+
+
+Above is a 7 x 3 grid. How many possible unique paths are there?
+
+ 
+
 Example 1:
 
-Input:
-s = "catsanddog"
-wordDict = ["cat", "cats", "and", "sand", "dog"]
-Output:
-[
-  "cats and dog",
-  "cat sand dog"
-]
+Input: m = 3, n = 2
+Output: 3
+Explanation:
+From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
+1. Right -> Right -> Down
+2. Right -> Down -> Right
+3. Down -> Right -> Right
 Example 2:
 
-Input:
-s = "pineapplepenapple"
-wordDict = ["apple", "pen", "applepen", "pine", "pineapple"]
-Output:
-[
-  "pine apple pen apple",
-  "pineapple pen apple",
-  "pine applepen apple"
-]
-Explanation: Note that you are allowed to reuse a dictionary word.
-Example 3:
+Input: m = 7, n = 3
+Output: 28
+ 
 
-Input:
-s = "catsandog"
-wordDict = ["cats", "dog", "sand", "and", "cat"]
-Output:
-[]
+Constraints:
+
+1 <= m, n <= 100
+It's guaranteed that the answer will be less than or equal to 2 * 10 ^ 9.
 ```
 
 # Relative Topics
 * Dynamic Programming
-* Backtracking
+
 
 
 # Note
 ```
-Time: 2020/07/31
+Time: 2020/08/11
 ```
 
 
 # Solution
-## 1. Backtracking
+## 1. Dynamic Programming
 
 ### Intuition
-using dfs to find all the possible result, and use memo to store the processed result to speed up.
-memo[s] : for a given s, what are the construct sentences
+create dp with same size. as the robot can only move down or right. The number of method in first row and first col is 1. Starting from second row and col, 
+
+dp[i][j] = dp[i-1][j] + dp[i][j-1]
+
+
+
 
 ### Complexity Analysis
-*   Time Complexity: O(2^N)
+*   Time Complexity: O(m*n)
   
-*   Space Complexity: O(2^N)
+*   Space Complexity: O(m*n)
